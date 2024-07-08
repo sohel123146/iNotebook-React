@@ -1,46 +1,56 @@
-import "./App.css";
-import React, { useState } from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Login from "./Pages/Login";
-import Signup from "./Pages/Signup";
-import Home from "./components/Home";
-import About from "./components/About";
-import NoteState from "./context/NoteState";
-import Alert from "./components/Alert";
-function App() {
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import About from './components/About';
+import NoteState from './context/NoteState';
+import Alert from './components/Alert';
+import UserInfo from './components/UserInfo';
+import Inotebook from './components/Inotebook';
+import './App.css';
 
-  const [alert,setAlert] = useState(null)
-  
-  const showAlert = (message,type) =>
-  {
+function App() {
+  const [alert, setAlert] = useState(null);
+
+  const showAlert = (message, type) => {
     setAlert({
-      msg : message,
-      type : type
-    })
+      msg: message,
+      type: type,
+    });
     setTimeout(() => {
-      setAlert(null)
+      setAlert(null);
     }, 1500);
-  }
+  };
+
+  const location = useLocation();
 
   return (
-    <>
-      <NoteState>
-        <BrowserRouter>
-          <Navbar />
-          <Alert alert={alert}/>
-          <div className="container">
-            <Routes>
-              <Route exact path="/" element={<Home showAlert={showAlert}/>} />
+    <NoteState>
+      <Navbar />
+      <Alert alert={alert} />
+      <div className="container">
+        <TransitionGroup>
+          <CSSTransition key={location.key} classNames="fade" timeout={300}>
+            <Routes location={location}>
+              <Route exact path="/" element={<Inotebook />} />
+              <Route exact path="/home" element={<Home showAlert={showAlert} />} />
               <Route exact path="/about" element={<About />} />
-              <Route exact path="/login" element={<Login showAlert={showAlert}/>} />
-              <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
+              <Route exact path="/userdetails" element={<UserInfo />} />
             </Routes>
-          </div>
-        </BrowserRouter>
-      </NoteState>
-    </>
+          </CSSTransition>
+        </TransitionGroup>
+      </div>
+    </NoteState>
   );
 }
 
-export default App;
+function WrappedApp() {
+  return (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+}
+
+export default WrappedApp;

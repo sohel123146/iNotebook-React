@@ -14,7 +14,7 @@ const Noteitem = (props) => {
           <div className="d-flex align-items-center">
             <h3 className="card-title">{note.title}</h3>
             <div className="buttons d-flex">
-          <FontAwesomeIcon
+          <FontAwesomeIcon 
             className="icon mx-2"
             icon={faTrash}
             onClick={()=> {deleteNote(note._id);props.showAlert("Note Deleted Successfully","success")}}
