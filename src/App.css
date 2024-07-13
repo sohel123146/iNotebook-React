@@ -1,24 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 
 /* Global Styles */
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #fff;
+  background-color: #f8f9fa;
   margin: 0;
   padding: 0;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /* Navbar Styles */
 .navbar {
-  background-color: #343a40 !important;
+  background-color: #343a40;
+  padding: 10px 20px;
 }
 
 .navbar-brand, .nav-link {
-  color: #fff !important;
+  color: #fff;
 }
 
 .navbar-brand:hover, .nav-link:hover {
-  color: #bbb !important;
+  color: #bbb;
 }
 
 .navbar-toggler-icon {
@@ -33,7 +39,7 @@ body {
 /* FontAwesome Icon Styles */
 .nav-item .icon {
   color: #fff;
-  border:1px solid grey;
+  border: 1px solid grey;
   font-size: 1.5rem;
   border-radius: 50%;
   padding: 10px;
@@ -73,11 +79,15 @@ body {
 .profile-card {
   background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 300px;
   text-align: center;
   padding: 20px;
-  margin: 10px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .profile-card img {
@@ -142,13 +152,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f9f9f9; /* Light background color */
+  background-color: #fff; /* Light background color */
   padding: 20px;
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   max-width: 600px; /* Maximum width of the container */
   margin: 20px auto; /* Center the container */
-  font-family: Arial, sans-serif; /* Font family for text */
 }
 
 .mock img {
@@ -172,18 +181,9 @@ body {
 .mock p:first-letter {
   font-size: 1.2em; /* Slightly larger first letter */
   font-weight: bold; /* Bold first letter */
-
 }
 
-.container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
+/* Content Styles */
 .content h1 {
   font-size: 24px;
   margin-bottom: 20px;
@@ -210,4 +210,55 @@ body {
 
 .content strong {
   font-weight: bold;
+}
+
+/* Card Styles */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width:300px;
+  height:150px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #333;
+}
+
+.card-text {
+  color: #777;
+  margin-top: 10px;
+}
+
+.card-div{
+  width:300px;
+  height:150px;
+  margin-left:20px;
+}
+
+.text{
+  margin-left:20px;
+}
+
+/* FontAwesome Icon Styles */
+.icon {
+  color: #333;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+  margin-left:.5rem;
+}
+
+.icon:hover {
+  color: #007bff;
+}
+
+.buttons {
+  margin-left: auto;
 }
